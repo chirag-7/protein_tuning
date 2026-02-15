@@ -7,11 +7,12 @@ A Reinforcement Learning (RL) framework for autoregressive protein Language Mode
 
 Currently, we have implemented the following algorithms:
 
-Weighted DPO
+1) Weighted DPO
 
-GRPO (bnpo, dr_grpo and grpo)
+2) GRPO (bnpo, dr_grpo and grpo)
 
-About The Project
+## About The Project
+
 This project allows you to:
 
 Train offline on pre-existing experimental data.
