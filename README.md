@@ -65,6 +65,7 @@ trainer = pLM_wDPOTrainer( #pLM_rDPOTrainer, pLM_GRPOTrainer
     train_dataset = train_dataset,
     eval_dataset = eval_dataset,
     processing_class=tokenizer,
+    peft_config=peft_config
 )
 
 trainer.train()
@@ -116,6 +117,7 @@ trainer = GRPO_trainer(
     train_dataset = train_dataset,
     eval_dataset = eval_dataset,
     processing_class=tokenizer,
+    peft_config=peft_config
 )
 
 trainer.train()
@@ -137,6 +139,7 @@ trainer = weighted_DPO( #pLM_GRPOTrainer
     train_dataset = train_dataset,
     eval_dataset = eval_dataset,
     processing_class=tokenizer,
+    peft_config=peft_config
 )
 
 trainer.train()
