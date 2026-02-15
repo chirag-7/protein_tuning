@@ -1,24 +1,52 @@
-# SFT( and RL Protein Language Models
+# SFT and RL for Protein Language Models
 <div align="center">
     <img src="https://github.com/user-attachments/assets/b5040d0c-74de-4627-bd2a-3e6344326ef5" width="350" >
 </div>
 
-A Reinforcement Learning (RL) framework for autoregressive protein Language Models (pLMs).
-Currently  have implemented the following algorithms: 
-- Weighted DPO
-- GRPO (```bnpo```, ```dr_grpo``` and ```grpo```) 
+A Reinforcement Learning (RL) framework for autoregressive protein Language Models (pLMs). This repository supports both Supervised Fine-Tuning (SFT) and Reinforcement Learning (RL) pipelines to optimize proteins for specific properties.
 
-## About Project
+Currently, we have implemented the following algorithms:
 
-Project allows you to:
+Weighted DPO
 
-- [**Train offline**](#offline-training) on pre-existing experimental data.  
-- [**Train online**](#online-training) with custom scoring functions in an iterative loop.
+GRPO (bnpo, dr_grpo and grpo)
 
-Based on the GRPO implementation in [Hugging Face’s TRL library](https://huggingface.co/docs/trl/main/en/grpo_trainer), we have extended the trainer to support:
+About The Project
+This project allows you to:
 
-1. Passing custom datasets at each iteration  
-2. Weighted variant of DPO (not available in the standard Hugging Face trainer)
+Train offline on pre-existing experimental data.
+
+Train online with custom scoring functions in an iterative loop.
+
+Based on the GRPO implementation in Hugging Face’s TRL library, we have extended the trainer to support:
+
+Passing custom datasets at each iteration
+
+Weighted variant of DPO (not available in the standard Hugging Face trainer)
+
+## Training Strategy: Full Fine-Tuning vs. LoRA
+
+This framework supports two distinct training modes depending on the size of your base model. You should choose the method that fits your hardware and model architecture:
+
+1. Full Fine-Tuning (Small Models)
+
+Recommended for: Models < 1 Billion Parameters (e.g., ZymCTRL, DistilProtBert, GPT-2).
+
+Method: We update all parameters of the model during both the SFT and RL phases.
+
+Why: Smaller models fit easily on standard GPUs (24GB+). Full fine-tuning generally yields higher stability and better adaptation for these architectures because every weight can adjust to the biological syntax.
+
+Default Behavior: The provided scripts default to this mode for ZymCTRL.
+
+2. LoRA / PEFT (Large Models)
+
+Recommended for: Models > 7 Billion Parameters (e.g., Llama-3, BioMistral, ESM-3, ChemLLM).
+
+Method: We use Low-Rank Adaptation (LoRA). The main model weights are frozen, and only small adapter layers are trained.
+
+Why: Full fine-tuning a 7B+ model requires massive multi-GPU clusters (H100s). LoRA allows you to run RL on these large models using consumer hardware (e.g., A100, RTX 4090) by significantly reducing VRAM usage.
+
+How to Enable: Use the peft_config argument in the training scripts (see Usage below).
 
 ### Quickstart Example
 
