@@ -1,28 +1,16 @@
-# ProtRL: Reinforcement Learning for Protein Language Models
+# SFT( and RL Protein Language Models
 <div align="center">
     <img src="https://github.com/user-attachments/assets/b5040d0c-74de-4627-bd2a-3e6344326ef5" width="350" >
 </div>
 
 A Reinforcement Learning (RL) framework for autoregressive protein Language Models (pLMs).
-Currently we have implemented the following algorithms: 
+Currently  have implemented the following algorithms: 
 - Weighted DPO
-- GRPO (```bnpo```, ```dr_grpo``` and ```grpo```)
+- GRPO (```bnpo```, ```dr_grpo``` and ```grpo```) 
 
-This is the repository for the paper [*Guiding Generative Protein Language Models with Reinforcement Learning*](https://arxiv.org/abs/2412.12979). 
+## About Project
 
-## Table of Content
-- [About ProtRL](#about-protrl)
-- [Usage](#usage)
-- [Installation](#installation)
-- [Example](#example)
-- [General Usage](#generalusage)
-- [Troubleshooting](#troubleshooting)
-- [References](#references)
-- [Citation](#citation)
-
-## About ProtRL
-
-ProtRL allows you to:
+Project allows you to:
 
 - [**Train offline**](#offline-training) on pre-existing experimental data.  
 - [**Train online**](#online-training) with custom scoring functions in an iterative loop.
@@ -184,31 +172,8 @@ Please take a look at the documentation for more details on how to configure and
 
 Feel free to contribute or raise issues if you encounter any problems! We are working to make it more accessible and detailed
 
-## Work in Progress
-
-[ ] LoRa example
 
 ## References
-
-- ESM1v: "Language models enable zero-shot prediction of the effects of mutations on protein function" Joshua Meier, Roshan Rao, Robert Verkuil, Jason Liu, Tom Sercu, Alexander Rives; doi: https://doi.org/10.1101/2021.07.09.450648. Computed using https://github.com/seanrjohnson/protein_gibbs_sampler/
-- ProteinMPNN: "Robust deep learning–based protein sequence design using ProteinMPNN", J. Dauparas et al. Science378,49-56(2022).DOI:10.1126/science.add2187
-- CLEAN: "Enzyme function prediction using contrastive learning". Science379,1358-1363(2023). DOI:10.1126/science.adf2465, GitHub: "https://github.com/tttianhao/CLEAN?tab=readme-ov-file"
-
-## Citation 
-
-If you use ProtRL, please cite our [preprint](https://arxiv.org/abs/2412.12979):
-
-```
-@misc{stocco2024guidinggenerativeproteinlanguage,
-      title={Guiding Generative Protein Language Models with Reinforcement Learning}, 
-      author={Filippo Stocco and Maria Artigues-Lleixa and Andrea Hunklinger and Talal Widatalla and Marc Guell and Noelia Ferruz},
-      year={2024},
-      eprint={2412.12979},
-      archivePrefix={arXiv},
-      primaryClass={q-bio.BM},
-      url={https://arxiv.org/abs/2412.12979}, 
-}
-```
 
  
 
