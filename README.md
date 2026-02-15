@@ -207,14 +207,10 @@ Feel free to contribute or raise issues if you encounter any problems! We are wo
 
 ## References
 
-@article{stocco2024guidinggenerativeproteinlanguage,
-      title={Guiding Generative Protein Language Models with Reinforcement Learning}, 
-      author={Filippo Stocco and Maria Artigues-Lleixa and Andrea Hunklinger and Talal Widatalla and Marc Guell and Noelia Ferruz},
-      year={2024},
-      eprint={2412.12979},
-      archivePrefix={arXiv},
-      primaryClass={q-bio.BM},
-      url={https://arxiv.org/abs/2412.12979}
+      Title = Guiding Generative Protein Language Models with Reinforcement Learning 
+      Author = Filippo Stocco and Maria Artigues-Lleixa and Andrea Hunklinger and Talal Widatalla and Marc Guell and Noelia Ferruz
+      Year = 2024
+      Url = https://arxiv.org/abs/2412.12979
  
 
 
