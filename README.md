@@ -5,7 +5,7 @@
 
 A Reinforcement Learning (RL) framework for autoregressive protein Language Models (pLMs). This repository supports both Supervised Fine-Tuning (SFT) and Reinforcement Learning (RL) pipelines to optimize proteins for specific properties.
 
-Currently, we have implemented the following algorithms:
+Currently, we have implemented the following RL algorithms:
 
 1) Weighted DPO
 
@@ -207,6 +207,14 @@ Feel free to contribute or raise issues if you encounter any problems! We are wo
 
 ## References
 
+@article{stocco2024guidinggenerativeproteinlanguage,
+      title={Guiding Generative Protein Language Models with Reinforcement Learning}, 
+      author={Filippo Stocco and Maria Artigues-Lleixa and Andrea Hunklinger and Talal Widatalla and Marc Guell and Noelia Ferruz},
+      year={2024},
+      eprint={2412.12979},
+      archivePrefix={arXiv},
+      primaryClass={q-bio.BM},
+      url={https://arxiv.org/abs/2412.12979}
  
 
 
