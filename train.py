@@ -128,7 +128,7 @@ peft_config = LoraConfig(
     target_modules=["c_attn"] # Use ["q_proj", "v_proj"] if using Llama/Mistral instead of ZymCTRL
 )
 
-training_args = GRPOConfig(output_dir=f"output_iteration{args.iteration_num}", 
+training_args = GRPOConfig(f"output_iteration{args.iteration_num}", 
                            logging_steps=100,
                            beta=CONFIG["beta"],
                            num_train_epochs = CONFIG["num_epochs"],
