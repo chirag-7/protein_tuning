@@ -21,6 +21,8 @@ import random
 import pandas as pd
 import math
 import os
+from peft import LoraConfig, TaskType
+import argparse
 
 parser = argparse.ArgumentParser()
 parser.add_argument("--model_dir", type=str, required=True)
