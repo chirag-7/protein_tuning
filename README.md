@@ -5,11 +5,17 @@
 
 A Reinforcement Learning (RL) framework for autoregressive protein Language Models (pLMs). This repository supports both Supervised Fine-Tuning (SFT) and Reinforcement Learning (RL) pipelines to optimize proteins for specific properties.
 
-Currently, we have implemented the following RL algorithms:
+Currently, have implemented the following RL algorithms:
 
 1) Weighted DPO
 
 2) GRPO (bnpo, dr_grpo and grpo)
+
+And Supervised Fine Tuning methods :
+
+1) Full Fine-Tuning
+
+2) Low-Rank Adaptation (LoRA)
 
 ## About The Project
 
