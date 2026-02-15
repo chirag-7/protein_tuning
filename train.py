@@ -21,6 +21,8 @@ import random
 import pandas as pd
 import math
 import os
+from peft import LoraConfig, TaskType
+import argparse
 
 parser = argparse.ArgumentParser()
 parser.add_argument("--iteration_num", type=int, required=True)
@@ -117,6 +119,14 @@ lr_list = np.linspace(CONFIG["learning_rate"], 0.0, num=args.max_iteration_num)
 
 optimizer, model, scheduler  = load_optimizer_scheduler(model, checkpoint, lr_list[args.iteration_num-1].item(), CONFIG)
 
+peft_config = LoraConfig(
+    task_type=TaskType.CAUSAL_LM,
+    inference_mode=False,
+    r=16,
+    lora_alpha=32,
+    lora_dropout=0.05,
+    target_modules=["c_attn"] # Use ["q_proj", "v_proj"] if using Llama/Mistral instead of ZymCTRL
+)
 
 training_args = GRPOConfig(output_dir=f"output_iteration{args.iteration_num}", 
                            logging_steps=100,
@@ -141,7 +151,8 @@ trainer = pLM_GRPOTrainer(
     train_dataset = train_dataset,
     eval_dataset = eval_dataset,
     processing_class=tokenizer,
-    optimizers = (optimizer, scheduler))
+    optimizers = (optimizer, scheduler),
+    peft_config=peft_config)
 
 trainer.lr_scheduler       = scheduler
 trainer.lr_scheduler_state = None
