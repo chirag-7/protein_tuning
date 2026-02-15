@@ -94,7 +94,14 @@ tokenizer = AutoTokenizer.from_pretrained(args.model_dir,
                                           add_eos_token=False, # NEED this for training NOT for generate() else add eos at the end of promt
                                           add_bos_token=False,
                                           use_fast=True)
-
+peft_config = LoraConfig(
+    task_type=TaskType.CAUSAL_LM,
+    inference_mode=False,
+    r=16,
+    lora_alpha=32,
+    lora_dropout=0.05,
+    target_modules=["c_attn"] # Use ["q_proj", "v_proj"] if using Llama/Mistral instead of ZymCTRL
+)
 
 training_args = GRPOConfig(output_dir=args.output, 
                            logging_steps=100,
@@ -118,7 +125,8 @@ trainer = pLM_GRPOTrainer(
     args=training_args,
     train_dataset = train_dataset,
     eval_dataset = eval_dataset,
-    processing_class=tokenizer)
+    processing_class=tokenizer,
+    peft_config=peft_config)
 
 trainer.train()
 trainer.save_model()
